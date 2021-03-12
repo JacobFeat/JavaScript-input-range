@@ -14,7 +14,6 @@ body {
   background: hsl(230, 100%, 99%);
   background-image: url('../images/bg-pattern.svg');
   background-repeat: no-repeat;
-
 }
 
 header {
@@ -59,8 +58,15 @@ h4 {
   border-radius: 20px;
 }
 
+.top-box {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .pageviews {
-  padding: 30px;
+  padding: 30px 0;
   font-weight: 600;
 }
 
@@ -90,7 +96,7 @@ h4 {
   transition: background 0.3s;
 }
 
-.moneyChooser::-webkit-slider-thumb:hover{
+.moneyChooser::-webkit-slider-thumb:hover {
   background: hsl(174, 86%, 41%);
   background-image: url('../images/icon-slider.svg');
   background-position: center;
@@ -100,7 +106,7 @@ h4 {
 }
 
 .price {
-  padding: 10px;
+  padding: 20px 0 10px;
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -142,11 +148,11 @@ h4 {
   color: hsl(15, 100%, 70%);
 }
 
-#toggle{
+#toggle {
   display: none;
 }
 
-.btn{
+.btn {
   display: inline-block;
   min-width: 30px;
   width: 45px;
@@ -159,31 +165,28 @@ h4 {
   transition: background 0.3s ease-in-out;
 }
 
-.btn:before{
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 100%;
-    background: #fff;
-    position: absolute;
-    top:50%;
-    left: 3px;
-    transform: translateY(-50%);
-    transition: 0.5s ease-in-out;
+.btn:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  transition: 0.5s ease-in-out;
 }
 
+#toggle:checked~.btn {}
 
-#toggle:checked ~ .btn{
-
+#toggle:checked~.btn:before {
+  transition: 0.5s ease-in-out;
+  left: 28px;
 }
 
-#toggle:checked ~ .btn:before{
-    transition: 0.5s ease-in-out;
-    left: 28px;
-}
-
-.toggle-hover{
+.toggle-hover {
   background: hsl(174, 86%, 45%);
   transition: background 0.3s ease-in-out;
 }
@@ -206,6 +209,7 @@ h4 {
   /* I did it to center horizontally pseudo-elements  */
 }
 
+
 .bottom-first h4::before {
   content: "";
   display: inline-block;
@@ -219,7 +223,7 @@ h4 {
 }
 
 .bottom-of-box button {
-  margin: 30px;
+  margin: 30px 0;
   width: 160px;
   height: 40px;
   border-radius: 30px;
@@ -231,34 +235,62 @@ h4 {
   transition: color 0.5s;
 }
 
-.bottom-of-box button:hover{
+.bottom-of-box button:hover {
   color: white;
   transition: color 0.5s;
 }
 
 /* MEDIA QUERIES */
-
+@media (max-width:700px) {
+  .bottom-first h4:last-child{
+    margin-bottom: 0;
+  }
+}
 
 @media (min-width: 700px) {
-  .bottom-of-box{
+  .bottom-of-box {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
   }
 
-  .bottom-first{
+  .bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+  }
+
+  .bottom-first {
     margin: 30px 0;
   }
 
-  .bottom-first h4{
+  .bottom-first h4 {
     justify-content: flex-start;
   }
 
+  .top-box {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    width: 80%;
+  }
 
+  .pageviews {
+    order: -2;
+  }
+
+  .moneyChooser {
+    width: 100%;
+  }
+
+  .price {
+    order: -1;
+  }
 }
 
-@media (min-width: 1300px){
-  .container{
-      background-size: contain;
+@media (min-width: 1300px) {
+  .container {
+    background-size: contain;
   }
 }
